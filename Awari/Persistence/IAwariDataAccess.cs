@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Awari.Persistence
+{
+    public interface IAwariDataAccess
+    {
+        /// <summary>
+        /// Fájl betöltése.
+        /// </summary>
+        /// <param name="path">Elérési útvonal. </param> 
+        /// <retruns> A fájlból beolvasott tábla. </retruns>
+
+        Task<AwariTable> LoadAsync(String path);
+
+        /// <summary>
+        /// Fájl mentése.
+        /// </summary>
+        /// <param name="path">Elérési útvonal.</param>
+        /// <param name="table">A fájlba kiírandó tábla.</param>
+        Task SaveAsync(String path, AwariTable table);
+    }
+}
